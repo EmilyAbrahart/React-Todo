@@ -22,7 +22,7 @@ class App extends React.Component {
 		};
 	}
 
-	changeHandler = (event) => {
+	changeHandler = event => {
 		this.setState({ toDoName: event.target.value });
 	};
 
@@ -33,19 +33,26 @@ class App extends React.Component {
 			completed: false,
 		};
 
-		this.setState(st => ({
-			toDoList: st.toDoList.concat(newToDo),
+		this.setState({
+			toDoList: this.state.toDoList.concat(newToDo),
 			toDoName: '',
-		}));
+		});
 	};
 
+	keyPressHandler = event => (event.key === 'Enter' ? this.addToDo() : false);
+	
 	render() {
 		return (
 			<div>
 				{this.state.toDoList.map(todo => (
 					<div key={todo.id}>{todo.task}</div>
 				))}
-				<input value={this.state.toDoName} onChange={this.changeHandler} type="text" />
+				<input
+					value={this.state.toDoName}
+					onChange={this.changeHandler}
+					onKeyPress={this.keyPressHandler}
+					type="text"
+				/>
 				<button className="addToDo" onClick={this.addToDo}>
 					Add ToDo
 				</button>
