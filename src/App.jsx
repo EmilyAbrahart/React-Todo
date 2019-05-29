@@ -22,16 +22,21 @@ class App extends React.Component {
 		};
 	}
 
-  changeHandler = event => {this.setState({ toDoName: event.target.value })};
-  
+	changeHandler = (event) => {
+		this.setState({ toDoName: event.target.value });
+	};
+
 	addToDo = () => {
 		const newToDo = {
 			id: Date.now(),
-			name: this.state.toDoName,
+			task: this.state.toDoName,
 			completed: false,
 		};
 
-		this.setState({ toDoList: this.state.toDoList.concat(newToDo), toDoName: '' });
+		this.setState(st => ({
+			toDoList: st.toDoList.concat(newToDo),
+			toDoName: '',
+		}));
 	};
 
 	render() {
