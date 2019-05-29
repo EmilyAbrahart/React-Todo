@@ -1,4 +1,6 @@
 import React from 'react';
+import ToDoList from './components/TodoComponents/TodoList';
+import ToDoForm from './components/TodoComponents/TodoForm';
 
 const initialToDoList = [
 	{
@@ -40,22 +42,18 @@ class App extends React.Component {
 	};
 
 	keyPressHandler = event => (event.key === 'Enter' ? this.addToDo() : false);
-	
+
 	render() {
 		return (
 			<div>
-				{this.state.toDoList.map(todo => (
-					<div key={todo.id}>{todo.task}</div>
-				))}
-				<input
-					value={this.state.toDoName}
-					onChange={this.changeHandler}
-					onKeyPress={this.keyPressHandler}
-					type="text"
+				<h2>My To Do List</h2>
+				<ToDoList toDoList={this.state.toDoList} />
+				<ToDoForm
+					toDoName={this.state.toDoName}
+					changeHandler={this.changeHandler}
+					keyPressHandler={this.keyPressHandler}
+					addToDo={this.addToDo}
 				/>
-				<button className="addToDo" onClick={this.addToDo}>
-					Add ToDo
-				</button>
 			</div>
 		);
 	}
