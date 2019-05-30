@@ -14,6 +14,7 @@ const ToDoList = ({ toDoList, markComplete }) => (
         id={todo.id}
         completed={todo.completed}
         markComplete={markComplete}
+        isFiltered={todo.isFiltered}
       />
     ))}
   </div>

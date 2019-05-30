@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ToDoSearch = ({
-  searchQuery, searchChangeHandler, searchToDo, searchKeyPressHandler,
+  searchQuery, searchChangeHandler, 
 }) => (
   <div className="searchDiv">
     <input
@@ -9,12 +9,8 @@ const ToDoSearch = ({
       type="text"
       placeholder="Search"
       onChange={searchChangeHandler}
-      onKeyPress={searchKeyPressHandler}
       value={searchQuery}
     />
-    {/* <button className="searchBtn" type="submit" onClick={searchToDo}>
-			Search
-    </button> */}
   </div>
 );
 

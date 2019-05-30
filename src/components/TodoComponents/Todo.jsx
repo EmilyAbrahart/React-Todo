@@ -3,7 +3,7 @@
 import React from 'react';
 
 export default function ToDo({
-  markComplete, task, id, completed,
+  markComplete, task, id, completed, isFiltered,
 }) {
   const onMarkComplete = (event) => {
     markComplete(id);
@@ -12,9 +12,11 @@ export default function ToDo({
   const taskStyle = {
     textDecoration: completed ? 'line-through' : 'none',
     color: completed ? '#aab6c7' : '#2f3e50',
+    display: isFiltered ? 'none' : 'inline-block',
   };
   const taskButtonStyle = {
     opacity: completed ? '0' : '100',
+    display: isFiltered ? 'none' : 'inline-block',
   };
 
   return (

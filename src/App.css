@@ -1,6 +1,7 @@
 body {
   background-image: url('./imgs/Dusk.jpg');
   background-attachment: fixed;
+  background-size: cover;
   box-sizing: border-box;
 }
 #root {
