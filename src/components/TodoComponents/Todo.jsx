@@ -19,10 +19,11 @@ export default function ToDo({
 
   return (
     <div className="todo">
-      <span style={taskStyle}>{task}</span>
+      
       <button style={taskButtonStyle} className="completeBtn" type="submit" onClick={onMarkComplete}>
 				Complete
       </button>
+      <span style={taskStyle}>{task}</span>
     </div>
   );
 }
