@@ -5,10 +5,16 @@
 import React from 'react';
 import ToDo from './Todo';
 
-const ToDoList = props => (
+const ToDoList = ({ toDoList, markComplete }) => (
   <div>
-    {props.toDoList.map(todo => (
-      <ToDo key={todo.id} task={todo.task} />
+    {toDoList.map(todo => (
+      <ToDo
+        key={todo.id}
+        task={todo.task}
+        id={todo.id}
+        completed={todo.completed}
+        markComplete={markComplete}
+      />
     ))}
   </div>
 );

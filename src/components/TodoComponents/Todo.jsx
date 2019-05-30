@@ -2,5 +2,17 @@
 /* eslint-disable import/prefer-default-export */
 import React from 'react';
 
-const ToDo = props => <p>{props.task}</p>;
-export default ToDo;
+export default function ToDo({ markComplete, task, id }) {
+  const onMarkComplete = (event) => {
+    markComplete(id);
+  };
+
+  return (
+    <p>
+      {task}
+      <button className="completeBtn" type="submit" onClick={onMarkComplete}>
+				Complete
+      </button>
+    </p>
+  );
+}

@@ -1,14 +1,11 @@
 import React from 'react';
 
-const ToDoForm = props => (
+const ToDoForm = ({
+  toDoName, changeHandler, keyPressHandler, addToDo,
+}) => (
   <div className="toDoForm">
-    <input
-      value={props.toDoName}
-      onChange={props.changeHandler}
-      onKeyPress={props.keyPressHandler}
-      type="text"
-    />
-    <button type="submit" className="addToDo" onClick={props.addToDo}>
+    <input value={toDoName} onChange={changeHandler} onKeyPress={keyPressHandler} type="text" />
+    <button type="submit" className="addToDo" onClick={addToDo}>
 			Add ToDo
     </button>
     <button type="button" className="clearComplete">

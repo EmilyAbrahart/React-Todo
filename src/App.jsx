@@ -43,11 +43,20 @@ class App extends React.Component {
 
 	keyPressHandler = event => (event.key === 'Enter' ? this.addToDo() : false);
 
+	markComplete = id => {
+		this.setState(state => ({
+			toDoList: state.toDoList.map(task => {
+				if (task.id === id) {task.completed = true};
+				return task; 
+			})
+		}));
+	}
+
 	render() {
 		return (
 			<div>
 				<h2>My To Do List</h2>
-				<ToDoList toDoList={this.state.toDoList} />
+				<ToDoList toDoList={this.state.toDoList} markComplete={this.markComplete} />
 				<ToDoForm
 					toDoName={this.state.toDoName}
 					changeHandler={this.changeHandler}
