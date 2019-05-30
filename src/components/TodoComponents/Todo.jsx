@@ -11,11 +11,16 @@ export default function ToDo({
 
   const taskStyle = {
     textDecoration: completed ? 'line-through' : 'none',
+    color: completed ? '#aab6c7' : '#2f3e50',
   };
+  const taskButtonStyle = {
+    opacity: completed ? '0' : '100',
+  };
+
   return (
-    <div>
+    <div className="todo">
       <span style={taskStyle}>{task}</span>
-      <button className="completeBtn" type="submit" onClick={onMarkComplete}>
+      <button style={taskButtonStyle} className="completeBtn" type="submit" onClick={onMarkComplete}>
 				Complete
       </button>
     </div>

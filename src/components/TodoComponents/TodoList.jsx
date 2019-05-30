@@ -6,7 +6,7 @@ import React from 'react';
 import ToDo from './Todo';
 
 const ToDoList = ({ toDoList, markComplete }) => (
-  <div>
+  <div className="todoList">
     {toDoList.map(todo => (
       <ToDo
         key={todo.id}

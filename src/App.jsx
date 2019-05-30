@@ -1,19 +1,19 @@
 import React from 'react';
 import ToDoList from './components/TodoComponents/TodoList';
 import ToDoForm from './components/TodoComponents/TodoForm';
+import './App.css';
 
-const initialToDoList = [
-	{
-		task: 'Organize Garage',
-		id: 1528817077286,
-		completed: false,
-	},
-	{
-		task: 'Bake Cookies',
-		id: 1528817084358,
-		completed: false,
-	},
-];
+const initialToDoList = [  {
+	task: 'Organize Garage',
+	id: 1528817077286,
+	completed: false
+},
+{
+	task: 'Bake Cookies',
+	id: 1528817084358,
+	completed: false
+}];
+
 
 class App extends React.Component {
 	constructor(props) {
@@ -54,15 +54,18 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div>
-				<h2>My To Do List</h2>
-				<ToDoList toDoList={this.state.toDoList} markComplete={this.markComplete} />
+			<div className="appContainer">
+				<h2>- To Do List -</h2>
 				<ToDoForm
 					toDoName={this.state.toDoName}
 					changeHandler={this.changeHandler}
 					keyPressHandler={this.keyPressHandler}
 					addToDo={this.addToDo}
 				/>
+				<div className="toDoListContainer">
+				<ToDoList toDoList={this.state.toDoList} markComplete={this.markComplete} />
+			
+				</div>
 			</div>
 		);
 	}
