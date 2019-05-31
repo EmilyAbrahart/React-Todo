@@ -41,10 +41,12 @@ class App extends React.Component {
 			isFiltered: false,
 		};
 
+		if (this.state.toDoName.length > 0){
 		this.setState({
 			toDoList: this.state.toDoList.concat(newToDo),
 			toDoName: '',
 		});
+	};
 	};
 
 	keyPressHandler = event => (event.key === 'Enter' ? this.addToDo() : false);
