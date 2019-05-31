@@ -42,10 +42,10 @@ class App extends React.Component {
 		};
 
 		if (this.state.toDoName.length > 0){
-		this.setState({
-			toDoList: this.state.toDoList.concat(newToDo),
+		this.setState( state => ({
+			toDoList: state.toDoList.concat(newToDo),
 			toDoName: '',
-		});
+		}));
 	};
 	};
 
