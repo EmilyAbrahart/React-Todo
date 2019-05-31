@@ -1,18 +1,31 @@
 /* eslint-disable react/prefer-stateless-function */
 /* eslint-disable import/prefer-default-export */
-import React, { Component } from 'React';
+import React from 'react';
 
-export class ToDo extends Component {
-  constructor(props) {
-    super(props);
-    const { todo } = this.props.todo;
-  }
+export default function ToDo({
+  markComplete, task, id, completed, isFiltered,
+}) {
+  const onMarkComplete = (event) => {
+    markComplete(id);
+  };
 
-  render() {
-    return (
-      <div className="todoItem" key={this.todo.id}>
-        {todo.name}
-      </div>
-    );
-  }
+  const taskStyle = {
+    textDecoration: completed ? 'line-through' : 'none',
+    color: completed ? '#aab6c7' : '#2f3e50',
+    display: isFiltered ? 'none' : 'inline-block',
+  };
+  const taskButtonStyle = {
+    opacity: completed ? '0' : '100',
+    display: isFiltered ? 'none' : 'inline-block',
+  };
+
+  return (
+    <div className="todo">
+      
+      <button style={taskButtonStyle} className="completeBtn" type="submit" onClick={onMarkComplete}>
+				Complete
+      </button>
+      <span style={taskStyle}>{task}</span>
+    </div>
+  );
 }
